@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imobiliária Oliveira - Encontre Seu Novo Lar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <a href="https://wa.me/5599999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <header>
+        <div class="container">
+            <h1>Imobiliária Oliveira</h1>
+            <nav>
+                <ul>
+                    <li><a href="#imoveis">Imóveis</a></li>
+                    <li><a href="#servicos">Serviços</a></li> 
+                    <li><a href="#">Venda</a></li>
+                    <li><a href="#contato">Contato</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <section id="imoveis" class="filtro-secao">
+                <h2>🔎 Filtre sua busca</h2>
+                <div class="campos-filtro">
+                    <select id="bairro-filtro">
+                        <option value="todos">Bairro (Todos)</option>
+                        <option value="centro">Centro</option>
+                        <option value="jardim-america">Jardim América</option>
+                        <option value="vila-nova">Vila Nova</option>
+                    </select>
+                    
+                    <select id="quartos-filtro">
+                        <option value="0">Quartos (Mínimo)</option>
+                        <option value="1">1 Quarto</option>
+                        <option value="2">2 Quartos</option>
+                        <option value="3">3 Quartos</option>
+                        <option value="4">4+ Quartos</option>
+                    </select>
+
+                    <input type="number" id="valor-max-filtro" placeholder="Valor Máximo (R$)">
+                </div>
+
+                <div class="botoes-filtro">
+                    <button onclick="aplicarFiltro()">Filtrar</button>
+                    <button onclick="limparFiltro()" class="btn-limpar">Limpar Pesquisa</button>
+                </div>
+            </section>
+
+            <section id="anuncios" class="grid-anuncios">
+                
+                <div class="card" data-bairro="sepetiba" data-valor="450000" data-quartos="3" 
+                    data-titulo="Casa com Area de serviço" data-endereco="Avenida Santa ursulina" data-area="120"
+                    data-banheiros="2" data-utilidades="Contas Individuais" data-contato="(21) 993450137"
+                    data-imagens="/imagens/casa5/casa5%20(1).jpg,/imagens/casa5/casa5%20(2).jpg,/imagens/casa5/casa5%20(3).jpg,/imagens/casa5/casa5%20(4).jpg,/imagens/casa5/casa5%20(5).jpg,/imagens/casa5/casa5%20(6).jpg,/imagens/casa5/casa5%20(7).jpg"
+                    onclick="showDetalhes(this)">
+                    <div class="card-img">
+                        <img src="/imagens/casa5/casa5%20(1).jpg" alt="Casa em Sepetiba">
+                        <span class="valor">R$ 500</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Casa com Area de serviço</h3>
+                        <p class="endereco"><i class="fas fa-map-marker-alt"></i> Sepetiba</p>
+                        <div class="detalhes">
+                            <span><i class="fas fa-bed"></i> 1</span>
+                            <span><i class="fas fa-bath"></i> 1</span>
+                            <span><i class="fas fa-ruler-combined"></i> 120m²</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-bairro="centro" data-valor="890000" data-quartos="4"
+                    data-titulo="Casa com comodo extra" data-endereco="Av. Santa ursulina, 500" data-area="250"
+                    data-banheiros="4" data-utilidades="Condomínio Gerencia" data-contato="(21) 993450137"
+                    data-imagens="/imagens/casa1/casa1 (1).jpg,/imagens/casa1/casa1 (2).jpg,/imagens/casa1/casa1 (3).jpg,/imagens/casa1/casa1 (4).jpg,/imagens/casa1/casa1 (5).jpg,/imagens/casa1/casa1 (6).jpg,/imagens/casa1/casa1 (7).jpg,/imagens/casa1/casa1 (8).jpg"
+                    onclick="showDetalhes(this)">
+                    <div class="card-img">
+                        <img src="/imagens/casa1/casa1 (1).jpg" alt="Apartamento no Centro">
+                        <span class="valor">R$ 650</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Casa com comodo extra</h3>
+                        <p class="endereco"><i class="fas fa-map-marker-alt"></i> Sepetiba</p>
+                        <div class="detalhes">
+                            <span><i class="fas fa-bed"></i> 2</span>
+                            <span><i class="fas fa-bath"></i> 1</span>
+                            <span><i class="fas fa-ruler-combined"></i> 250m²</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-bairro="vila-nova" data-valor="280000" data-quartos="2"
+                    data-titulo="Casa Econômica com Quintal" data-endereco="Rua 10, 88" data-area="80"
+                    data-banheiros="1" data-utilidades="Contas Individuais" data-contato="(99) 99999-9999"
+                    data-imagens="/imagens/casa4/casa4 (1).jpg,/imagens/casa4/casa4 (4).jpg,/imagens/casa4/casa4 (5).jpg,/imagens/casa4/casa4 (6).jpg,/imagens/casa4/casa4 (7).jpg,/imagens/casa4/casa4 (8).jpg"
+                    onclick="showDetalhes(this)">
+                    <div class="card-img">
+                        <img src="/imagens/casa4/casa4 (1).jpg" alt="Casa em Vila Nova">
+                        <span class="valor">R$ 500</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Casa Econômica com Quintal</h3>
+                        <p class="endereco"><i class="fas fa-map-marker-alt"></i> Sepetiba</p>
+                        <div class="detalhes">
+                            <span><i class="fas fa-bed"></i> 2</span>
+                            <span><i class="fas fa-bath"></i> 1</span>
+                            <span><i class="fas fa-ruler-combined"></i> 80m²</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            
+            <hr>
+            
+            <section id="servicos" class="servicos-secao">
+                <h2>Nossos Serviços de Administração Residencial</h2>
+                <p class="descricao-servicos">Oferecemos soluções completas para proprietários, garantindo a tranquilidade e a valorização do seu patrimônio.</p>
+                
+                <div class="servicos-grid">
+                    <div class="servico-item">
+                        <i class="fas fa-file-invoice-dollar fa-3x"></i>
+                        <h3>Gestão Financeira e Cobrança</h3>
+                        <p>Controle de aluguéis, emissão de boletos, repasses pontuais e gestão de inadimplência.</p>
+                    </div>
+                    <div class="servico-item">
+                        <i class="fas fa-handshake fa-3x"></i>
+                        <h3>Intermediação de Locação</h3>
+                        <p>Contrato digital, assinatura online, elaboração de contratos seguros e vistorias detalhadas de entrada e saída.</p>
+                    </div>
+                    <div class="servico-item">
+                        <i class="fas fa-tools fa-3x"></i>
+                        <h3>Manutenção e Reparos</h3>
+                        <p>Acompanhamento de reparos necessários e contratação de prestadores de serviços confiáveis.</p>
+                    </div>
+                </div>
+                
+                <h3 class="servicos-padrao">Padrão de Serviços Imobiliários</h3>
+                <ul class="lista-padrao">
+                    <li><i class="fas fa-check-circle"></i> Venda e Compra de Imóveis (Residenciais e Comerciais)</li>
+                    <li><i class="fas fa-check-circle"></i> Avaliação Profissional de Imóveis</li>
+                    <li><i class="fas fa-check-circle"></i> Assessoria Jurídica Imobiliária</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section id="contato" class="contato-secao">
+                <h2>📞 Fale Conosco</h2>
+                <p class="descricao-contato">Nossa equipe está pronta para te atender. Escolha o contato direto ou envie uma mensagem.</p>
+                
+                <div class="contatos-grid">
+                    <div class="contato-card">
+                        <i class="fas fa-user-tie fa-3x"></i>
+                        <h3>Proprietário / Diretor</h3>
+                        <p>Nome: Damião Oliveira</p>
+                    </div>
+                    
+                    <div class="contato-card">
+                        <i class="fas fa-headset fa-3x"></i>
+                        <h3>Gerente de Imóveis</h3>
+                        <p>Nome: Denis Oliveira</p>
+                        <p>Telefone: (21) 993450137</p>
+                         <a href="https://wa.me/5521993450137" target="_blank" class="btn-contato-wa">
+                            <i class="fab fa-whatsapp"></i> Chat Gerente
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contato-form">
+                    <h3>Ou Envie uma Mensagem Geral:</h3>
+                    <form action="#" method="POST">
+                        <input type="text" placeholder="Seu Nome Completo" required>
+                        <input type="email" placeholder="Seu E-mail" required>
+                        <textarea placeholder="Sua Mensagem / Dúvida sobre o imóvel" required></textarea>
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </section>
+            </div>
+    </main>
+    
+    <div id="imovel-modal" class="modal" onclick="closeDetalhes(event)">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeDetalhes(event)">&times;</span>
+            <div class="modal-body">
+                
+                <div class="carousel-container">
+                    <img id="modal-img" src="" alt="Foto do Imóvel Detalhado">
+                    <button class="prev-btn" onclick="prevSlide(event)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn" onclick="nextSlide(event)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-titulo"></h2>
+                    <p class="modal-preco" id="modal-valor"></p>
+                    
+                    <div class="modal-detalhes">
+                        <p><i class="fas fa-map-marker-alt"></i> **Endereço:** <span id="modal-endereco"></span></p>
+                        <p><i class="fas fa-bed"></i> **Quartos:** <span id="modal-quartos"></span></p>
+                        <p><i class="fas fa-bath"></i> **Banheiros:** <span id="modal-banheiros"></span></p>
+                        <p><i class="fas fa-ruler-combined"></i> **Área:** <span id="modal-area"></span>m²</p>
+                        <p><i class="fas fa-bolt"></i> **Luz/Água:** <span id="modal-utilidades"></span></p>
+                    </div>
+                    
+                    <div class="modal-contato">
+                        <p><i class="fas fa-phone-alt"></i> **Fale Conosco:** <span id="modal-contato"></span></p>
+                        <a id="modal-whatsapp-link" href="#" target="_blank" class="btn-whatsapp-modal">
+                            <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Desenvolvido por Denis Oliveira &copy; 2025.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
